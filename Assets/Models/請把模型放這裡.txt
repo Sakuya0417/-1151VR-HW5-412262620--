@@ -1,0 +1,13 @@
+把下載的模型（含貼圖）整個資料夾拖進對應位置，然後執行選單 HW5 > Build Pokemon Scene：
+
+Assets/Models/Trainer/   ← 訓練家（建議 Mixamo 人物 FBX，選 "FBX for Unity"、With Skin）
+Assets/Models/Pokemon/   ← 寶可夢模型（FBX 或 OBJ）
+Assets/Models/Pokeball/  ← 精靈球模型（FBX 或 OBJ）
+
+場景建立器會自動：
+- 讀取每個資料夾裡第一個模型
+- 縮放到合適大小（訓練家 1.7m、寶可夢 0.9m、精靈球 0.3m）
+- 訓練家自動設成 Humanoid，抓取右手臂骨骼做拋球動作
+
+資料夾是空的時候會放替代模型，程式一樣能跑。
+若模型面向錯誤方向，請旋轉「子物件」(模型本身) 的 Y 軸，不要轉外層的 Trainer / Pokemon。
