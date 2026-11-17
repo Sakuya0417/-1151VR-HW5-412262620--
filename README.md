@@ -27,10 +27,12 @@ https://github.com/Sakuya0417/-1151VR-HW5-412262620--.git
 3. YouTube 連結
 https://youtu.be/xZ31KMJVzdw
 4. 製作流程與相關操作
+
 4.1 建立 Unity 3D 專案
 1.	開啟 Unity Hub → 新專案 → 選擇 Universal 3D 範本。
 2.	專案名稱輸入 1151VR-HW5，選擇「建立新本機專案」，位置 C:\Users\93102，按 建立專案。
 3.	將自製腳本放入 Assets/HW5/（Scripts 為執行時腳本，Editor 為編輯器工具）。
+
 4.2 訓練家拋球手臂動作（TrainerThrowAnimator.cs）
 以程序化動畫在 LateUpdate 轉動右上臂與前臂骨骼，任何人形模型都適用，不需要另外製作動畫檔。
 階段	時間	上臂角度	手肘
@@ -38,8 +40,8 @@ https://youtu.be/xZ31KMJVzdw
 揮臂（加速甩出）	0.28 秒	100° → 280°（過頭頂到前方）	打直，約 80% 時放開球
 隨球動作	0.45 秒	280° → 330°	微彎
 回位	0.50 秒	330° → 360°（下垂）	0°
-
 出手前，精靈球會固定在訓練家右手掌上（位置換算成手骨骼的區域座標），所以揮臂過程中球會跟著手一起移動。
+
 4.3 精靈球飛行與收服特效（PokeballThrowController.cs、HW5FX.cs）
 1.	飛行（由左至右）：二次拋物線 p = Lerp(起點, 終點, t) + 上方 × 高度 × 4t(1−t)，飛行 1 秒，球會旋轉並拖出白色拖尾。
 2.	命中：白色爆散粒子＋光環衝擊波，球彈回半空。
@@ -47,6 +49,7 @@ https://youtu.be/xZ31KMJVzdw
 4.	落地並搖晃 3 次：每次搖晃後冒出小星光。
 5.	收服成功：金色星星爆發＋光環＋持續的星星噴泉，畫面中央顯示「Gotcha! 收服成功！」。
 所有粒子特效都由程式即時產生（Particle System、Trail Renderer、Line Renderer），不需要外部素材。
+
 4.4 音效（HW5Audio.cs）
 時機	音效	合成方式
 出手	呼嘯聲	低通濾波白雜訊，音量先升後降
@@ -66,6 +69,7 @@ HW5 ▸ Capture Preview Screenshot	拍攝未執行前的場景截圖（1920×108
 HW5 ▸ Record Video	以固定 30 fps 錄下完整演出（含音效）
 
 在 GameManager 的 Inspector 可調整：飛行時間、拋物線高度、搖晃次數、收服光顏色、握球位置（Hold Offset）、音效音量。
+
 4.6 模型來源與授權（Credits）
 •	訓練家：Mixamo（Adobe）角色「Remy」。
 •	寶可夢：Sketchfab「Pikachu」，上傳者 gaddiellartey2010（CC Attribution）；原始模型檔由 Random Talking Bush 提供，Roxas358 製作貼圖。
